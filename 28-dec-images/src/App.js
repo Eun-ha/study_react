@@ -24,6 +24,15 @@ class App extends React.Component{
     //console.log(searchTerm)
     //console.log(this.state.images)
   }
+  componentDidMount = () => {
+    const json = localStorage.getItem("images");
+    const images = JSON.parse(json);
+    this.setState({images});
+  }
+  componentDidUpdate = () => {
+    const images = JSON.stringify(this.state.images);
+    localStorage.setItem("images", images);
+  }
   render(){
     return(
       <div>
