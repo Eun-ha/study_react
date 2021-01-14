@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import './App.css';
 import Message from './Message';
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core'
 
 function App() {
   const [input, setInput] = useState('');
@@ -26,11 +28,11 @@ function App() {
     <div className="App">
       <h1>Let's chit chatting!</h1>
       <h2>welcome {username}</h2>
-      <form>
-        <FormControl>
+      <form className="app__form">
+        <FormControl className="app__formControl">
           <InputLabel>Enter a message....</InputLabel>
-          <Input value={input} onChange={event => setInput(event.target.value)} />
-          <Button disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}>Send Message</Button>
+          <Input className="app__input" value={input} onChange={event => setInput(event.target.value)} />
+          <IconButton className="app__iconButton" disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}><SendIcon></SendIcon></IconButton>
         </FormControl>
       </form>
       
